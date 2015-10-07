@@ -25,7 +25,7 @@ public class SimpleProducer {
     }
 
     @Scheduled(fixedRate = 6000)
-    public void send() throws InterruptedException {
+    public void send() {
         logger.info(System.currentTimeMillis());
         boolean isGodfather = atomicBoolean.get();
         String response;

@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.DependsOn;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import rda.rabbitmq.QueueName;
 
@@ -20,15 +21,15 @@ public class SimpleProducer {
     @PostConstruct
     private void init() {
         logger.info("Emit to queue");
-        send();
     }
 
+    @Scheduled(fixedRate = 6000)
     public void send() {
+        long time = System.currentTimeMillis();
+        logger.info(time);
 
-        template.convertAndSend(QueueName.info, "Info#1");
-        template.convertAndSend(QueueName.problem, "Problem#1");
-        template.convertAndSend(QueueName.info, "Info#2");
-        template.convertAndSend(QueueName.problem, "Problem #2");
+        template.convertAndSend(QueueName.info, "Info - " + time);
+        template.convertAndSend(QueueName.problem, "Problem - " + time);
     }
 
 }

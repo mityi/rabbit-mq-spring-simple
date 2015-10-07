@@ -8,19 +8,19 @@ public interface QueueName {
     String problem = "problem";
 
 
+    //topics
     String in = "*.in.*";
+    String start = "start.#";
+    String end = "*.*.end";
 
+    //generate address for topics
     default String in(String first, String last) {
         return first + ".in." + last;
     }
 
-    String start = "start.#";
-
     default String start(String... second) {
         return "start." + String.join(".", second);
     }
-
-    String end = "*.*.end";
 
     default String end(String first, String second) {
         return first + '.' + second + ".end";

@@ -14,13 +14,13 @@ public class SimpleRabbitMqListener {
     @RabbitListener(queues = QueueName.welcome)
     public void welcome(String message) throws InterruptedException {
         TimeUnit.SECONDS.sleep(1);
-        logger.info("Welcome Start.End: " + message);
+        logger.info("(Start or End) -> " + message);
     }
 
     @RabbitListener(queues = QueueName.offer)
     public void offer(String message) throws InterruptedException {
         TimeUnit.SECONDS.sleep(1);
-        logger.info("Offer In: " + message);
+        logger.info("(In) -> " + message);
     }
 
 }

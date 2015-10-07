@@ -10,9 +10,11 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import rda.rabbitmq.QueueName;
 
 @EnableRabbit
+@EnableScheduling
 @ComponentScan
 @Configuration
 public class RabbitConfiguration {

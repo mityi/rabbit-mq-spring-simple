@@ -33,12 +33,18 @@ public class RabbitConfiguration {
     @Bean
     public RabbitTemplate rabbitTemplate() {
         RabbitTemplate template = new RabbitTemplate(connectionFactory());
-//        template.setReplyQueue(queueWelcome());
-        template.setQueue(QueueName.welcome);
+//        template.setReplyQueue(queueOffer());
+//        template.setQueue(QueueName.welcome);
         template.setReplyTimeout(60 * 1000);
         //no reply to - we use direct-reply-to
         return template;
     }
+
+//    @Bean
+//    public Queue queueOffer() {
+//        return new Queue(QueueName.offer);
+//    }
+
 
     @Bean
     public Queue queueWelcome() {
