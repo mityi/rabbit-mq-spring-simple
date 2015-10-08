@@ -1,4 +1,4 @@
-package rda.rabbitmq.rpc;
+package rda.rabbitmq.rpc.services;
 
 import org.apache.log4j.Logger;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;

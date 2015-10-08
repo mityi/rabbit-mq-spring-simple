@@ -1,11 +1,9 @@
-package rda.rabbitmq.rpc;
+package rda.rabbitmq.rpc.services;
 
 import org.apache.log4j.Logger;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 import rda.rabbitmq.QueueName;
-
-import java.util.concurrent.TimeUnit;
 
 @Component
 public class SimpleRabbitMqListener {
